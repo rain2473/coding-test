@@ -1,19 +1,17 @@
-from sys import stdin
-_ = stdin.readline()
-N = sorted(map(int,stdin.readline().split()))
-_ = stdin.readline()
-M = list(map(int,stdin.readline().split()))
-index, m_dic = 0, {}
+N = int(input())
+tmp = sorted(map(int,input().split(' ')))
+M = int(input())
+temp = list(map(int,input().split(' ')))
+ans = {}
 
-for m in sorted(M):
-    cnt = 0
-    if m not in m_dic:
-        while index < len(N):
-            if m == N[index]:
-                cnt += 1; index += 1
-            elif m > N[index]:
-                index += 1
-            else: break
-        m_dic[m] = cnt
-
-print(' '.join(str(m_dic[m]) for m in M))
+for i in tmp:
+    if i in ans:
+        ans[i]+=1
+    else:
+        ans[i]=1
+        
+for i in temp:
+    if i in ans:
+        print(ans[i], end = ' ')
+    else:
+        print(0, end = ' ')
