@@ -3,12 +3,12 @@ def solution(s):
     s = s.split(" ")
     for word in s:
         word = list(word)
-        for i in range(len(word)):
+        for i,c in enumerate(word):
             if i % 2 == 0:
-                word[i] = word[i].upper()
+                c = c.upper()
             else:
-                word[i] = word[i].lower()
-        word = "".join(word)
-        answer.append(word)
-    answer = " ".join(answer)
+                c = c.lower()
+            answer.append(c)
+        answer.append(" ")
+    answer = "".join(answer[:-1])
     return answer
