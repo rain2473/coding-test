@@ -5,5 +5,5 @@ def solution(s):
     else:
         try: s = int(s)
         except:
-            return False
+            answer = False
     return answer
