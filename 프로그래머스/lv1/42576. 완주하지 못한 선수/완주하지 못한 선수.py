@@ -3,7 +3,7 @@ def solution(participant, completion):
     tmp = 0
     for person in participant:
         dict_par[hash(person)] = person
-        tmp += int(hash(person))
+        tmp += hash(person)
     for person in completion:
         tmp -= hash(person)
     return dict_par[tmp]
