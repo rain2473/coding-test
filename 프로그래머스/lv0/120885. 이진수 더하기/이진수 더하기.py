@@ -5,3 +5,4 @@ def solution(bin1, bin2):
         answer += str(int(i) + tmp - 2 * (int(i) + tmp >= 2))
         tmp = (int(i) + tmp >= 2)*1
     return str(tmp)*(tmp == 1) + answer[::-1]
+    # return bin(int(bin1,2) + int(bin2,2))[2:]
