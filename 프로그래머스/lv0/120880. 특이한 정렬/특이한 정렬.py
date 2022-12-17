@@ -16,3 +16,4 @@ def solution(numlist, n):
         except:
             continue
     return [i+n for i in tmp]
+    # return sorted(numlist,key = lambda x: [abs(x-n),-x])
