@@ -3,6 +3,6 @@ def solution(babbling):
     for word in babbling:
         for bab in ["aya", "ye", "woo", "ma"]:
             word = word.replace(bab,".")
-            word = word.replace("..",".")
-        answer.append(word.replace("..","."))
-    return answer.count(".")
+        if list(set(list(word))) == ['.']:
+            answer.append(word)
+    return len(answer)
