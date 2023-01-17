@@ -1,7 +1,5 @@
-def Fibonacci(n):
-    if n < 2:
-        return n
-    else:
-        return Fibonacci(n-2) +Fibonacci(n-1)
-answer = Fibonacci(int(input()))
-print(answer)
+n = int(input())
+answer = [0]+[1]*(n+1)
+for i in range(2,n+1):
+    answer[i] = answer[i-1] + answer[i-2]
+print(answer[n])
