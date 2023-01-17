@@ -1,16 +1,15 @@
-from collections import deque
+import heapq
 def solution(operations):
-    answer = deque([])
+    answer = []
     for order in operations:
         try:
             if order == "D 1":
                 answer.pop()
             elif order == "D -1":
-                answer.popleft()
+                heapq.heappop(answer)
             else:
                 tmp = int(order[2:])
-                answer.append(tmp)
-                answer = deque(sorted(answer))
+                heapq.heappush(answer,tmp)
         except:
             continue
     if answer:
