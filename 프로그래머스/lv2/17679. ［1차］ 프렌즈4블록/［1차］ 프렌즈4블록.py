@@ -24,7 +24,7 @@ def exe(m, n, answer, board_t):
     return board_t, answer
  
 def retrans(m,n,board_t):
-    new_board = [[str(i+n*j) for i in range(n)]for j in range(m)]
+    new_board = [["0"]*n]*m
     for col in range(len(board_t)):
         for i in range(m):
             new_board[i][col] = board_t[col][i]
