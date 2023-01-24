@@ -5,6 +5,16 @@ def trans(m, n, board):
             board_t[j] += [board[i][j]]
     return board_t
 
+def retrans(m,n,board_t):
+    new_board = [["0"]*n]*m
+    for col in range(len(board_t)):
+        for i in range(m):
+            new_board[i][col] = board_t[col][i]
+    board = []
+    for row in new_board:
+        board.append("".join(row))
+    return board
+
 def exe(m, n, answer, board_t):
     memory = []
     for x in range(n-1):
@@ -23,16 +33,6 @@ def exe(m, n, answer, board_t):
         board_t[col] = list(tmp)
     return board_t, answer
  
-def retrans(m,n,board_t):
-    new_board = [["0"]*n]*m
-    for col in range(len(board_t)):
-        for i in range(m):
-            new_board[i][col] = board_t[col][i]
-    board = []
-    for row in new_board:
-        board.append("".join(row))
-    return board
-
 def solution(m, n, board):
     answer = 0
     board_t = trans(m, n, board)
