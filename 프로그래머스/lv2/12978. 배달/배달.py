@@ -8,7 +8,6 @@ def dijkstra(distance, table):
             if cost+c < distance[n]:
                 distance[n] = cost+c
                 queue.append([n, cost+c])
-    pass
 
 def solution(N, road, K):
     distance = [float("inf")]*(N+1)
