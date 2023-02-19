@@ -7,11 +7,9 @@ def solution(n, l, r):
             digit += 1
         q = num // (5 ** digit)
         re = num % (5 ** digit)
-        answer = q * (4 ** digit)
-        if q > 2:
-            answer -= (4 ** digit)
+        answer = (q - (q > 2)) * (4 ** digit)
         if q == 2:
             return answer
         else:
             return answer + sol(re)
-    return sol(r) - sol(l - 1)
+    return sol(r) - sol(l-1)
