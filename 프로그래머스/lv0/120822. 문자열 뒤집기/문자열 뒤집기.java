@@ -1,13 +1,12 @@
-import java.util.*;
+import java.lang.*;
 class Solution {
     public String solution(String my_string) {
-        String answer = "";
-        List<String> list = new ArrayList(Arrays.asList(my_string.split("")));
-        List<String> reverse = new ArrayList();
-        for (int i = list.size()-1; i > -1; i--){
-            reverse.add(list.get(i));
+        StringBuilder answer = new StringBuilder();
+        for (int i = 0; i < my_string.length(); i++){
+            answer.append(my_string.charAt(i));
         }
-        answer = String.join("",reverse);
-        return answer;
+        answer.reverse();
+        String result = answer.toString();
+        return result;
     }
 }
