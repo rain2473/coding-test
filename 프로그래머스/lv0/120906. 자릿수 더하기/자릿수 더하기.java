@@ -1,9 +1,9 @@
 class Solution {
     public int solution(int n) {
-        String str[] = String.valueOf(n).split("");
         int answer = 0;
-        for (String s : str){
-            answer += Integer.parseInt(s);
+        while (n != 0){
+            answer += n % 10;
+            n = n / 10;
         }
         return answer;
     }
