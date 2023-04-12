@@ -13,5 +13,4 @@ def solution(players, callings):
         players_hash[chased] += 1
         rank_hash[players_hash[tmp]] = tmp
         rank_hash[players_hash[chased]] = chased
-    answer = list(rank_hash.values())
-    return answer
+    return list(rank_hash.values())
