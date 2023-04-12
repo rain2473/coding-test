@@ -1,7 +1,6 @@
 from collections import deque
 def solution(players, callings):
-    players_hash = {}
-    rank_hash = {}
+    players_hash, rank_hash = {}, {}
     callings = deque(callings)
     for i, player in enumerate(players):
         players_hash[player] = i
