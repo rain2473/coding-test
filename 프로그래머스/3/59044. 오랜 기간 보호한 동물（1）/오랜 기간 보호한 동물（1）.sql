@@ -1,0 +1,13 @@
+-- 코드를 입력하세요
+SELECT NAME
+     , DATETIME
+  FROM (
+        SELECT A.NAME
+             , RANK() OVER (ORDER BY A.DATETIME) AS RANK1
+             , A.DATETIME
+          FROM ANIMAL_INS A, ANIMAL_OUTS B
+         WHERE A.ANIMAL_ID = B.ANIMAL_ID(+)
+           AND B.ANIMAL_ID IS NULL
+       )
+   WHERE RANK1 < 4
+ ORDER BY RANK1
