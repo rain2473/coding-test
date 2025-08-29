@@ -1,0 +1,22 @@
+-- 코드를 입력하세요
+SELECT B.MEMBER_NAME
+     , B.REVIEW_TEXT
+     , DATE_FORMAT(B.REVIEW_DATE, '%Y-%m-%d')
+  FROM (
+        SELECT A.MEMBER_ID
+             , RANK() OVER(ORDER BY COUNT(1) DESC) AS RANK_1
+          FROM MEMBER_PROFILE AS A
+             , REST_REVIEW AS B
+         WHERE A.MEMBER_ID = B.MEMBER_ID
+         GROUP BY A.MEMBER_ID
+       ) A
+    , (
+        SELECT B.*
+             , A.MEMBER_NAME
+          FROM MEMBER_PROFILE AS A
+             , REST_REVIEW AS B
+         WHERE A.MEMBER_ID = B.MEMBER_ID
+       ) B
+WHERE RANK_1 = 1
+  AND A.MEMBER_ID = B.MEMBER_ID
+ORDER BY B.REVIEW_DATE ASC, B.REVIEW_TEXT ASC
